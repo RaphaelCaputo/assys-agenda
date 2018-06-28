@@ -1,0 +1,53 @@
+
+    <% include partials/header.ejs %>
+
+    <h1>Register a Contact Here</h1>
+    <div class="container">
+        <div class="row">
+            <form class="col-12" id="validateForm" method="POST" action="/register">
+                <div class="form-row">
+                    <div class="form-group col-4">
+                        <label for="inputName">Name</label>
+                        <input type="text" class="form-control" id="inputName" name="name" placeholder="Name">
+                    </div>
+                    <div class="form-group col-8">
+                        <label for="inputLastName">Last Name</label>
+                        <input type="text" class="form-control" id="inputLastName" name="lastName" placeholder="Last Name">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-3">
+                        <label for="inputCPF">CPF</label>
+                        <input type="text" class="form-control" id="inputCPF" name="cpf" placeholder="999.999.999-99">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="inputRole">Role</label>
+                        <input type="text" class="form-control" id="inputRole" name="role" placeholder="eg: Developer">
+                    </div>
+                    <div class="form-group col-3">
+                        <label for="inputBDate">Birth Date</label>
+                        <input type="text" class="form-control" id="inputBDate" name="birthDate" placeholder="99/99/9999">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-3">
+                        <label for="inputPhone">Phone</label>
+                        <input type="text" class="form-control" id="inputPhone" name="phone" placeholder="9999-9999">
+                    </div>
+                    <div class="form-group col-3">
+                        <label for="inputCellPhone">CellPhone</label>
+                        <input type="text" class="form-control" id="inputCellPhone" name="cellPhone" placeholder="99999-9999">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="inputEmail">Email address</label>
+                        <input type="email" class="form-control" id="inputEmail" name="email" placeholder="name@example.com">
+                    </div>
+                </div>
+                <div class="newCont d-flex justify-content-end">
+                    <button type="submit" id="submit-button" class="btn btn-dark">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <% include partials/footer.ejs %>

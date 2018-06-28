@@ -1,0 +1,101 @@
+
+    <% include partials/header.ejs %>
+
+    <h1><%= user.name + ' ' + user.lastName %></h1>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="row col-12"><h4>CPF: <%= user.cpf %> </h4></div>
+            <div class="row col-12"><h4>Role: <%= user.role %> </h4></div>
+            <div class="row col-12"><h4>BirthDate: <%= user.birthDate %> </h4></div>
+
+            <% for(var i=0; i < user.phone.length; i++) { var deleteId = '/contact/delete/phone/' + user._id + '/' + i %>
+            <div class="row col-12"><h4>Phone: <%= user.phone[i] %> </h4>
+                <form action=<%= deleteId %> method="POST">
+                    <div class="justify-content-end">
+                        <button class="btn btn-dark btn-sm margin-btn" type=<%= deleteId %> ><span class="oi oi-trash"></span></button>
+                    </div>
+                </form>
+            </div>
+            <% } %>
+
+            <% for(var i=0; i < user.cellPhone.length; i++) { var deleteId = '/contact/delete/cellPhone/' + user._id + '/' + i %>
+            <div class="row col-12"><h4>CellPhone: <%= user.cellPhone[i] %> </h4>
+                <form action=<%= deleteId %> method="POST">
+                    <div class="justify-content-end">
+                        <button class="btn btn-dark btn-sm margin-btn" type=<%= deleteId %> ><span class="oi oi-trash"></span></button>
+                    </div>
+                </form>
+            </div>
+            <% } %>
+
+            <% for(var i=0; i < user.email.length; i++) { var deleteId = '/contact/delete/email/' + user._id + '/' + i %>
+            <div class="row col-12"><h4>Email: <%= user.email[i] %> </h4>
+                <form action=<%= deleteId %> method="POST">
+                    <div class="justify-content-end">
+                        <button class="btn btn-dark btn-sm margin-btn" type=<%= deleteId %> ><span class="oi oi-trash"></span></button>
+                    </div>
+                </form>
+            </div>
+            <% } %>
+  
+        </div>
+        <div class="row">
+            <% var editId = '/contact/edit/' + user._id %>
+            <% var deleteId = '/contact/delete/' + user._id %>
+            
+
+            <div class="newCont d-flex justify-content-end">
+                <a class="btn btn-dark" href=<%= editId %> role="button">Update</a>
+            </div>
+            <form action=<%= deleteId %> method="POST">
+                <div class="newCont d-flex justify-content-end">
+                    <button type="submit" class="btn btn-dark">Delete</button>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <% var phoneId = '/contact/add/phone/' + user._id %>
+
+            <form class="col-4" id="validateForm" method="POST" action=<%= phoneId %> >
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="inputPhone">Phone</label>
+                        <input type="text" class="form-control" id="inputPhone" name="phone" placeholder="9999-9999">
+                    </div>
+                </div>
+                <div class="newCont justify-content-end">
+                    <button type="submit" id="submit-button" class="btn btn-dark">Add Phone</button>
+                </div>
+            </form>
+
+            <% var cellPhoneId = '/contact/add/cellPhone/' + user._id %>
+            <form class="col-4" id="validateForm" method="POST" action=<%= cellPhoneId %> >
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="inputCellPhone">CellPhone</label>
+                        <input type="text" class="form-control" id="inputCellPhone" name="cellPhone" placeholder="99999-9999">
+                    </div>
+                </div>
+                <div class="newCont justify-content-end">
+                    <button type="submit" id="submit-button" class="btn btn-dark">Add CellPhone</button>
+                </div>
+            </form>
+
+            <% var emailId = '/contact/add/email/' + user._id %>
+            <form class="col-4" id="validateForm" method="POST" action=<%= emailId %> >
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="inputEmail">Email address</label>
+                        <input type="email" class="form-control" id="inputEmail" name="email" placeholder="name@example.com">
+                    </div>
+                </div>
+                <div class="newCont justify-content-end">
+                    <button type="submit" id="submit-button" class="btn btn-dark">Add Email</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <% include partials/footer.ejs %>

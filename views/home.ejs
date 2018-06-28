@@ -1,0 +1,49 @@
+
+    <% include partials/header.ejs %>
+
+    <h1>Welcome to the Agenda</h1>
+
+    <div class="container">
+      <div class="row">
+        <form id="search-name">
+          <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search for a contact...">
+          </div>
+        </form>
+      </div>
+      <div class="row">
+        <table id="contact-table" class="table table-dark table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">CPF</th>
+              <th scope="col">Role</th>
+              <th scope="col">Birth Date</th>
+              <th scope="col">Phone</th>
+              <th scope="col">CellPhone</th>
+              <th scope="col">Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(var i=0; i < users.length; i++) { var id = '/contact/' + users[i]._id %>
+            <tr class='clickable-row' data-href= <%= id %>>
+              <th scope="row"><%= users[i].name %></th>
+              <td><%= users[i].lastName %></td>
+              <td><%= users[i].cpf %></td>
+              <td><%= users[i].role %></td>
+              <td><%= users[i].birthDate %></td>
+              <td><%= users[i].phone %></td>
+              <td><%= users[i].cellPhone %></td>
+              <td><%= users[i].email %></td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+      <div class="newCont row d-flex justify-content-end">
+        <a class="btn btn-dark" href="/register" role="button">New Contact</a>
+      </div>
+    </div>
+
+    <% include partials/footer.ejs %>
