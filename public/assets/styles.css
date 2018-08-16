@@ -13,3 +13,5 @@ h4{ color: #fff; }
 .form-row{ padding-top: 10px; }
 
 .margin-btn{ margin-left: 10px; }
+
+.clickable-row { cursor: pointer; }
